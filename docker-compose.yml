@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  redis:
+    image: redis
+    container_name: redis
+    command: redis-server --requirepass 12345
+    network_mode: host
+    networks: 
+     - backend
+  ranking:
+    image: ranking
+    build: .
+    container_name: game-ranking
+    #networks:
+    #  - backend
+    network_mode: host
+    environment:
+      - SERVER_TYPE=Development
+      - DB_HOST=localhost
+      - DB_PORT=3306
+      - DB_NAME=test
+      - DB_USERNAME=test
+      - DB_PASSWORD=12345
+      - REDIS_HOST=localhost
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=12345
+    restart: always
+#networks:
+  #backend:
