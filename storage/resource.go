@@ -2,7 +2,7 @@ package storage
 
 import (
 	"database/sql"
-	"gamerangkingserver/config"
+	"rangkingserver/config"
 
 	"github.com/go-redis/redis"
 	_ "github.com/go-sql-driver/mysql"
@@ -13,7 +13,7 @@ import (
 // Integrate with DB
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// GetAllUserEventDataFromDB get daily data from game database `game_play_event` for store in redis
+// GetAllUserEventDataFromDB get daily data from game database `play_event` for store in redis
 func GetAllUserEventDataFromDB(ds *DataSource) ([]UserData, error) {
 	var userDataList []UserData
 	db, err := sql.Open("mysql", ds.DataSourceName)
@@ -21,7 +21,7 @@ func GetAllUserEventDataFromDB(ds *DataSource) ([]UserData, error) {
 		zap.L().Panic("cannot open connection", zap.String("source", ds.DataSourceName), zap.Error(err))
 	}
 	defer db.Close()
-	rows, err := db.Query("SELECT event_type+0 as event_type, uid, sum(value) FROM `game_play_event`  GROUP by uid,event_type,game_mode,exchange_rate")
+	rows, err := db.Query("SELECT event_type, uid, sum(value) FROM `play_event`  GROUP by uid,event_type")
 	if err != nil {
 		return userDataList, err
 	}

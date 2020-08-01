@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"gamerangkingserver/config"
-	"gamerangkingserver/ranking"
-	"gamerangkingserver/storage"
 	"log"
 	"net/http"
+	"rangkingserver/config"
+	"rangkingserver/ranking"
+	"rangkingserver/storage"
 
 	"go.uber.org/zap"
 )

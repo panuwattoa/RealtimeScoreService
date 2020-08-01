@@ -2,7 +2,7 @@ package storage
 
 import (
 	"fmt"
-	"gamerangkingserver/config"
+	"rangkingserver/config"
 
 	"github.com/go-redis/redis"
 	"go.uber.org/zap"
@@ -35,11 +35,11 @@ func (ds *DataSource) Close() {
 // NewDataSource for initial program
 func NewDataSource() *DataSource {
 	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s",
-		config.GameDBUser,
-		config.GameDBPassword,
-		config.GameDBHost,
-		config.GameDBPort,
-		config.GameDBName,
+		config.DBUser,
+		config.DBPassword,
+		config.DBHost,
+		config.DBPort,
+		config.DBName,
 	)
 
 	zap.L().Info("use db: ", zap.String("data source", dataSourceName))

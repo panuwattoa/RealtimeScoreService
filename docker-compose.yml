@@ -10,7 +10,7 @@ services:
   ranking:
     image: ranking
     build: .
-    container_name: game-ranking
+    container_name: ranking
     #networks:
     #  - backend
     network_mode: host

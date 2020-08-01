@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gamerangkingserver/config"
-	"gamerangkingserver/storage"
-	"gamerangkingserver/utils"
 	"net/http"
+	"rangkingserver/config"
+	"rangkingserver/storage"
+	"rangkingserver/utils"
 
 	"github.com/go-redis/redis"
 	"go.uber.org/zap"

@@ -16,4 +16,4 @@ RUN GOOS=linux GOARCH=amd64 go build
 
 EXPOSE 12400 8444
 
-CMD [ "gamerangkingserver" ]
+CMD [ "rangkingserver" ]

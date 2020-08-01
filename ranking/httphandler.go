@@ -3,9 +3,9 @@ package ranking
 import (
 	"encoding/json"
 	"fmt"
-	"gamerangkingserver/storage"
 	"io/ioutil"
 	"net/http"
+	"rangkingserver/storage"
 
 	"go.uber.org/zap"
 )
@@ -18,18 +18,10 @@ type httpResponse struct {
 }
 
 type userBody struct {
-	UID           string `json:"uid"`
-	Name          string `json:"name"`
-	Level         string `json:"level"`
-	ProfilePicID  string `json:"profile_pic_id"`
-	AccountTypeID string `json:"account_type_id"`
-	CrownID       string `json:"crown_id"`
-	FrameID       string `json:"frame_id"`
-	EventType     string `json:"event_type"`
-	GameMode      string `json:"game_mode"`
-	SubTitle      string `json:"sub_title"`
-	Amount        string `json:"amount"`
-	RoomPrivacy   string `json:"room_privacy"`
+	UID       string `json:"uid"`
+	Name      string `json:"name"`
+	EventType string `json:"event_type"`
+	Amount    string `json:"amount"`
 }
 
 // InitRankingSystemData prepare data when starter
