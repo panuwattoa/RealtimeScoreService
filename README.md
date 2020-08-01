@@ -1,5 +1,5 @@
 # RealtimeScoreService
 Realtime collecting score use Golang and Redis 
 
-Database struture 
+Database structure 
  - SQL > play_event.sql
